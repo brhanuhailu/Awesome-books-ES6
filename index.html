@@ -1,14 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>awesom book ES6</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Awesome Books</title>
 </head>
 <body>
-    
-<script src="index.js"></script>
+      <header class="header-contanier">
+        <nav class="nav-bar">
+            <div class="logo">Awesome Books</div>
+            <ul class="nav-list">
+                <li><a class="list-link" href="#">List</a></li>
+                <li class="border"><a class="add-link" href="#">Add new</a></li>
+                <li><a class="contact-link" href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--end of header-->
+  <main class="allcontainer">
+    <div class="date"></div>
+  <div class="container">
+    <section class="book-lists">
+      <h1 class="book-heading">All Awesome Books</h1>
+      <div class="new-books"></div>
+      <div class="books-content">
+      
+      </div>
+  </section>
+  <!--end of book list container-->
+      <section class="addnewbook books">
+        <form class="forms">
+          <h2>Add a new book</h2>
+          <div class="form-control">
+            <input type="text" id="title" name="title" placeholder="Title"><br>
+          </div>
+          <div class="form-control">
+            <input type="text" id="author" name="author" placeholder="Author"><br>
+          </div>
+          <input type="submit" class="add btn" value="Add" id="add">
+        </form> 
+      </section>
+      <!--end  of form container section here-->
+      <section class="contact">
+        <div class="contact-desc">
+            <h2>Contact information</h2>
+            <p>Do you have any questions or you just want to say hello?<br>
+            You can reach out to us!
+            </p>
+            <ul class="ul-list">
+                <li>our e-mail awseomebooks@gmail.com</li>
+                <li>Our phone number 004358634422</li>
+                <li>Our adress streetname 22, 84503 Ethio-Addis, Gahna</li>
+            </ul>
+        </div>
+
+    </section>
+  </div>
+</main>
+  <footer class="footer-container">
+    <div class="footer-logo">
+        Copyright &copy; 2023, Brhanu Hailu
+    </div>
+</footer>
+<script type="module" src="index.js"></script>
 </body>
 </html>
