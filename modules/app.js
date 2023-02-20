@@ -1,25 +1,17 @@
-/* eslint-disable max-classes-per-file */
-/* eslint-disable no-use-before-define */
+import Book from './book.js';
+
 const listOfbooks = document.querySelector('.books-content');
 const newB = document.querySelector('.new-books');
 const title = document.querySelector('#title');
 const author = document.querySelector('#author');
-
-class Book {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-    this.bookid = Math.random().toFixed(1);
-  }
-}
 
 class StoreBook {
   constructor() {
     // Array of objects for the book items
     this.BookData = [];
   }
-  // Add new Book to the book list
 
+  /* eslint-disable no-use-before-define */
   addBook(newbook) {
     this.BookData.push(newbook);
     localStorage.setItem('BookDB', JSON.stringify(this.BookData));
@@ -67,6 +59,30 @@ let DisplayBooks = (index) => {
   listOfbooks.appendChild(displaybook);
 };
 
+const showAlert = () => {
+  const div = document.createElement('div');
+  div.className = 'error';
+  newB.appendChild(div);
+  div.appendChild(document.createTextNode('Fields are required'));
+  setTimeout(() => document.querySelector('.error').remove(), 3000);
+};
+
+const success = () => {
+  const div = document.createElement('div');
+  div.className = 'success';
+  newB.append(div);
+  div.appendChild(document.createTextNode('Book successfully added!'));
+  setTimeout(() => document.querySelector('.success').remove(), 3000);
+};
+
+let removeSuccess = () => {
+  const div = document.createElement('div');
+  div.className = 'remove-book';
+  newB.append(div);
+  div.appendChild(document.createTextNode('Book Removed Successfully!'));
+  setTimeout(() => document.querySelector('.remove-book').remove(), 3000);
+};
+
 // Add Button
 const addnewBook = document.querySelector('#add');
 addnewBook.addEventListener('click', (e) => {
@@ -92,30 +108,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   savebook.BookData.forEach((item) => DisplayBooks(item));
 });
-
-let showAlert = () => {
-  const div = document.createElement('div');
-  div.className = 'error';
-  newB.appendChild(div);
-  div.appendChild(document.createTextNode('Fields are required'));
-  setTimeout(() => document.querySelector('.error').remove(), 3000);
-};
-
-const success = () => {
-  const div = document.createElement('div');
-  div.className = 'success';
-  newB.append(div);
-  div.appendChild(document.createTextNode('Book successfully added!'));
-  setTimeout(() => document.querySelector('.success').remove(), 3000);
-};
-
-let removeSuccess = () => {
-  const div = document.createElement('div');
-  div.className = 'remove-book';
-  newB.append(div);
-  div.appendChild(document.createTextNode('Book Removed Successfully!'));
-  setTimeout(() => document.querySelector('.remove-book').remove(), 3000);
-};
 
 const date = new Date().toLocaleString();
 document.querySelector('.date').innerHTML = date;
