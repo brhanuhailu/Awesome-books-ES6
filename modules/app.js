@@ -41,13 +41,13 @@ class StoreBook {
 
 const savebook = new StoreBook();
 // Get input value
-function getformInput() {
+const getformInput = () => {
   const insertbook = new Book(title.value, author.value);
   return insertbook;
-}
+};
 
 // Display teh list of books on the web page
-function DisplayBooks(index) {
+let DisplayBooks = (index) => {
   let bgcolor = '';
   if (savebook.BookData.indexOf(index) % 2 !== 0) {
     bgcolor = 'white';
@@ -65,7 +65,7 @@ function DisplayBooks(index) {
   removeBook.addEventListener('click', () => savebook.removeBook(index.bookid));
   displaybook.appendChild(removeBook);
   listOfbooks.appendChild(displaybook);
-}
+};
 
 // Add Button
 const addnewBook = document.querySelector('#add');
@@ -93,29 +93,29 @@ window.addEventListener('DOMContentLoaded', () => {
   savebook.BookData.forEach((item) => DisplayBooks(item));
 });
 
-function showAlert() {
+let showAlert = () => {
   const div = document.createElement('div');
   div.className = 'error';
   newB.appendChild(div);
   div.appendChild(document.createTextNode('Fields are required'));
   setTimeout(() => document.querySelector('.error').remove(), 3000);
-}
+};
 
-function success() {
+const success = () => {
   const div = document.createElement('div');
   div.className = 'success';
   newB.append(div);
   div.appendChild(document.createTextNode('Book successfully added!'));
   setTimeout(() => document.querySelector('.success').remove(), 3000);
-}
+};
 
-function removeSuccess() {
+let removeSuccess = () => {
   const div = document.createElement('div');
   div.className = 'remove-book';
   newB.append(div);
   div.appendChild(document.createTextNode('Book Removed Successfully!'));
   setTimeout(() => document.querySelector('.remove-book').remove(), 3000);
-}
+};
 
 const date = new Date().toLocaleString();
 document.querySelector('.date').innerHTML = date;
